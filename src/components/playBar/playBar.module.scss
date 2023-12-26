@@ -51,3 +51,61 @@
   flex-basis: 600px;
   margin: auto;
 }
+
+
+@media only screen and (max-width: 1023px) {
+  .playbar {
+    height: 55px;
+    gap: 14px;
+    font-size: 14px;
+  }
+
+  .preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  .credits {
+    gap: 2px;
+  
+    & > p {
+      font-size: 11px;
+    }
+  }
+
+  .slider { 
+    flex-basis: 60%;
+
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .playbar {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  .credits {
+    gap: 2px;
+  
+    & > p {
+      font-size: 11px;
+    }
+  }
+
+  .slider { 
+    flex-basis: 600px;
+
+  }
+
+}
