@@ -87,11 +87,19 @@
     justify-content: center;
     height: auto;
     padding-bottom: 10px;
+    gap: 2px;
+    font-size: 13px;
+  }
+
+  .playbar > img,
+  .playbar > button,
+  .playbar > .credits {
+    margin-left: 5px;
   }
 
   .preview {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 8px;
   }
 
@@ -105,7 +113,7 @@
 
   .slider { 
     flex-basis: 600px;
-
+    padding: 0;
   }
 
 }

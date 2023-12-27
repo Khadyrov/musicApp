@@ -32,3 +32,9 @@
 		padding: 4px;
 	}
 }
+
+@media (pointer: coarse) {
+	span.MuiSlider-root.MuiSlider-colorPrimary.MuiSlider-sizeMedium.css-187mznn-MuiSlider-root {
+		padding: 0;
+	}
+}
