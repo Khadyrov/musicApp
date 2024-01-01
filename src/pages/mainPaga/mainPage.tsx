@@ -10,12 +10,6 @@ import style from './mainPage.module.scss'
 const MainPage:FC = () => {
 
   const {AddFilteredData}:any = useContext(AudioContext)
-
-  console.log(AddFilteredData);
-  
-
-  
-
   const [tracksList, setTracksList] = React.useState<dataType[]>([])
 
   React.useEffect(() => {
@@ -23,8 +17,6 @@ const MainPage:FC = () => {
   }, [])
 
   const runSearch = (query:string) => {
-
-    
 
     if(!query) {
       setTracksList(data)

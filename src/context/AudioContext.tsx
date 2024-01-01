@@ -11,18 +11,13 @@ export const AudioContext = createContext({})
 
 const AudioProvider:FC<any> = ({children}) => {
   const [changedDates, setChangedDates]: [dataType[], Function] = useState(data);
-  
-
 
   const [CurrentTrack, setCurrentTrack] = useState(defaultTrack)
-
   const [isPlaying, setPlaying] = useState(false)
 
   const AddFilteredData = (list:dataType) => {
     setChangedDates(list)
   }
-
-  
 
   useEffect(() => {
     

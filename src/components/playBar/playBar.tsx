@@ -7,7 +7,7 @@ import { IconButton, Slider } from "@mui/material"
 import {Pause, PlayArrow} from "@mui/icons-material"
 import secondToMMSS from "../../utils/secondToMMSS"
 
-interface TimeControlsType {
+interface handleChengeCurrentTimeType {
   (event: Event, value: number | number[]): void;
 }
 
@@ -27,7 +27,7 @@ const TimeControls:FC = () => {
   const sliderCurrentTime = Math.round((currentTime / duration) *100)
   
   
-  const handleChengeCurrentTime: TimeControlsType = (_, e) => {
+  const handleChengeCurrentTime: handleChengeCurrentTimeType = (_, e) => {
 
     
 
