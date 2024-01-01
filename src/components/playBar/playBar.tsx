@@ -7,10 +7,16 @@ import { IconButton, Slider } from "@mui/material"
 import {Pause, PlayArrow} from "@mui/icons-material"
 import secondToMMSS from "../../utils/secondToMMSS"
 
-const TimeControls = () => {
+interface TimeControlsType {
+  (event: Event, value: number | number[]): void;
+}
 
-  const {audio, CurrentTrack}:any = useContext(AudioContext)
+
+const TimeControls:FC = () => {
+
+  const {audio, CurrentTrack}: any = useContext(AudioContext);  
   const {duration} = CurrentTrack
+
 
   const [currentTime, setCurrentTime] = useState<number>(0)
 
@@ -21,7 +27,13 @@ const TimeControls = () => {
   const sliderCurrentTime = Math.round((currentTime / duration) *100)
   
   
-  const handleChengeCurrentTime = (_:any, value:any) => {
+  const handleChengeCurrentTime: TimeControlsType = (_, e) => {
+
+    
+
+    const value: number| any = e
+
+      
     const time = Math.round(((value /100 )* duration ))
     setCurrentTime(time)
     audio.currentTime = time
@@ -54,7 +66,7 @@ const TimeControls = () => {
   )
 }
 
-const PlayBar:FC = ():any => {
+const PlayBar:FC = () => {
   const { CurrentTrack, handlyToggleAudio, isPlaying }:any = useContext(AudioContext)
 
   const {title, artists, preview, duration} = CurrentTrack

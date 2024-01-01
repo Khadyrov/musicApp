@@ -1,4 +1,4 @@
-export interface dataType  {
+export type dataType = {
       id: number,
       src: string,
       preview:  string,

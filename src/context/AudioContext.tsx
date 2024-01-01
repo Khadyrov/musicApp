@@ -1,5 +1,6 @@
-import { FC, createContext, useState } from "react";
+import { FC, createContext, useState,} from "react";
 import data from "../data/data";
+import { dataType } from "../types";
 import { useEffect } from "react";
 
 const defaultTrack = data[0]
@@ -9,13 +10,15 @@ const audio = new Audio(defaultTrack.src)
 export const AudioContext = createContext({})
 
 const AudioProvider:FC<any> = ({children}) => {
-  const [changedDates, setChangedDates ] = useState(data)
+  const [changedDates, setChangedDates]: [dataType[], Function] = useState(data);
+  
+
 
   const [CurrentTrack, setCurrentTrack] = useState(defaultTrack)
 
   const [isPlaying, setPlaying] = useState(false)
 
-  const AddFilteredData:any = (list:any) => {    
+  const AddFilteredData = (list:dataType) => {
     setChangedDates(list)
   }
 
@@ -24,7 +27,7 @@ const AudioProvider:FC<any> = ({children}) => {
   useEffect(() => {
     
     const handleAudioEnd = () => {
-      const nextTrackIndex = changedDates.findIndex((track) => track.id === CurrentTrack.id);
+      const nextTrackIndex = changedDates.findIndex((track: dataType) => track.id === CurrentTrack.id);
       const newIndex:any = (nextTrackIndex + 1) % changedDates.length  
         
       setCurrentTrack(changedDates[newIndex])
@@ -41,7 +44,7 @@ const AudioProvider:FC<any> = ({children}) => {
   }, [audio,CurrentTrack])
 
 
-  const handlyToggleAudio:any = (track:any) => {
+  const handlyToggleAudio = (track:dataType) => {
 
     if(CurrentTrack.id !== track.id) {
       setCurrentTrack(track)

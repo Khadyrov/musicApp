@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { FC, useContext } from "react"
 import data from "../../data/data"
 import Track from "../../components/track/track"
 import { Input } from "@mui/material"
@@ -7,32 +7,38 @@ import { AudioContext } from "../../context/AudioContext"
 import style from './mainPage.module.scss'
 
 
-const MainPage: React.FC  = () => {
+const MainPage:FC = () => {
 
   const {AddFilteredData}:any = useContext(AudioContext)
 
+  console.log(AddFilteredData);
   
 
-  const [tracksList, setTracksList]:any = React.useState([])
+  
+
+  const [tracksList, setTracksList] = React.useState<dataType[]>([])
 
   React.useEffect(() => {
     setTracksList(data)
   }, [])
 
-  const runSearch = (query:any) => {
+  const runSearch = (query:string) => {
+
+    
+
     if(!query) {
       setTracksList(data)
     }
 
     setTracksList(
-      data.filter((track:any) => (
+      data.filter((track) => (
       track.title.toLowerCase().includes(query.toLowerCase())||
       track.artists.toLowerCase().includes(query.toLowerCase())
       ))
     )
 
     AddFilteredData(
-      data.filter((track:any) => (
+      data.filter((track) => (
       track.title.toLowerCase().includes(query.toLowerCase())||
       track.artists.toLowerCase().includes(query.toLowerCase())
       ))
